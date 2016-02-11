@@ -6,10 +6,10 @@
 			carret.addClass("type");
 		}, 2000);
 
-		carret.on('animationend', function(e){
+		carret.on('transitionend', function(e){
 			setTimeout(function() {
 				carret.removeClass("type");
-				carret.addClass("untype");
+				carret.addClass("untyping");
 			}, 2000);
 		});
 	});

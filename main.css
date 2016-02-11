@@ -1,13 +1,3 @@
-@keyframes typing {
-    from { width: 100% }
-    to { width: 0 }
-}
-
-@keyframes untyping {
-    from { width: 0 }
-    to { width: 100% }
-}
-
 @keyframes blink-caret {
     from, to { border-color: transparent }
     50% { border-color: black }
@@ -32,16 +22,14 @@ h1 span {
     box-sizing: border-box;
     width: 100%;
     border-color: transparent;
+    animation: blink-caret 1s step-end infinite;
+    transition: all 4s steps(15, end);
+}
+
+.untyping {
+	transition-duration: 2s;
 }
 
 .type {
 	width: 0%;
-	animation: typing 4s steps(15, end), /* # of steps = # of characters */
-                        blink-caret 1s step-end infinite;
-}
-
-.untype {
-	width: 100%;
-	animation: untyping 2s steps(15, end), /* # of steps = # of characters */
-                        blink-caret 1s step-end infinite;
 }
