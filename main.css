@@ -1,6 +1,11 @@
 @keyframes typing {
     from { width: 100% }
-    to { width:0 }
+    to { width: 0 }
+}
+
+@keyframes untyping {
+    from { width: 0 }
+    to { width: 100% }
 }
 
 @keyframes blink-caret {
@@ -16,7 +21,7 @@ h1 {
     font-size:150%;
 }
 
-h1 span{
+h1 span {
     position:absolute;
     top:0;
     right:0;
@@ -31,6 +36,12 @@ h1 span{
 
 .type {
 	width: 0%;
-	animation: typing 5s steps(15, end), /* # of steps = # of characters */
+	animation: typing 4s steps(15, end), /* # of steps = # of characters */
+                        blink-caret 1s step-end infinite;
+}
+
+.untype {
+	width: 100%;
+	animation: untyping 2s steps(15, end), /* # of steps = # of characters */
                         blink-caret 1s step-end infinite;
 }
