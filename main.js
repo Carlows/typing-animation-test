@@ -1,5 +1,5 @@
 (function($){
-	$(document).ready(function(){
+	function carlosAnimation() {
 		var carret = $(".carret");
 
 		setTimeout(function() {
@@ -12,5 +12,9 @@
 				carret.addClass("untyping");
 			}, 2000);
 		});
+	}
+
+	$(document).ready(function(){
+		carlosAnimation();
 	});
 })(jQuery)
