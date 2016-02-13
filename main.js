@@ -2,11 +2,16 @@
 	function textAnimation(message) {
 		var deferred = $.Deferred();
 		var carret = $(".carret");
-		var animationText = $("#animationText");
+		var container = $(".container");
+		var heading = $("<h1 id='animationText'></h1>");
 		var carret = $("<span class='carret'>&nbsp;</span>");
-		animationText.html(message);
-		animationText.append(carret);
-		console.log(message);
+
+		container.html(heading);
+		heading.html(message);
+		heading.append(carret);
+
+		var timingFunctionValue = "steps(" + message.length + ", end)"
+		carret.css("transition-timing-function", timingFunctionValue);
 
 		setTimeout(function() {
 			if(!carret.hasClass("typing"))
@@ -20,10 +25,9 @@
 					carret.addClass("untyping");
 				} else if (carret.hasClass("untyping")) {
 					carret.removeClass("untyping");
-
+					container.empty();
 					deferred.resolve();
 				}
-				console.log("transitionend");
 			}, 2000);
 		});
 
@@ -31,7 +35,8 @@
 	}
 
 	$(document).ready(function(){
-		textAnimation("Hi, I'm Carlos.")
-		.then(textAnimation("And this is sparta!"));
+		textAnimation("Hi, I'm Carlos.").done(function(){
+			textAnimation("And this is sparta!");
+		});
 	});
 })(jQuery)

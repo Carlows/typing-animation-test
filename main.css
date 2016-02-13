@@ -23,7 +23,7 @@ h1 span {
     width: 100%;
     border-color: transparent;
     animation: blink-caret 1s step-end infinite;
-    transition: all 4s steps(15, end);
+    transition: all 3s steps(15, end);
 }
 
 .untyping {
