@@ -16,7 +16,7 @@
 		setTimeout(function() {
 			if(!carret.hasClass("typing"))
 				carret.addClass("typing");
-		}, 2000);
+		}, 500);
 
 		carret.on('transitionend', function(e){
 			setTimeout(function() {
@@ -35,8 +35,12 @@
 	}
 
 	$(document).ready(function(){
-		textAnimation("Hi, I'm Carlos.").done(function(){
-			textAnimation("And this is sparta!");
+		textAnimation("Hi, I'm Carlos.").then(function(){
+			textAnimation("Hi, I'm Johan!").then(function(){
+				textAnimation("Hi, I'm Adonis!").then(function(){
+					textAnimation("Hi, I'm BATMAN!!!");
+				});
+			});
 		});
 	});
 })(jQuery)
